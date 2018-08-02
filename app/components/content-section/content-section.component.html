@@ -1,31 +1,26 @@
 <!-- CONTENT SECTION -->
 <div class="container timeline">
-    <div class="row" *ngFor="let actress of actresses; odd as odd; even as even">
-        <!-- NODE 01 | LEFT-->
-        <div class="row" *ngIf="odd; then leftNode"></div>
-
-        <!-- NODE 02 | RIGHT-->
-        <div class="row" *ngIf="even; then rightNode"></div>
+    <div class="row" *ngFor="let actress of actresses">
+        <ng-container [ngTemplateOutlet]='actress.classType == "left" ? leftNode : rightNode' [ngTemplateOutletContext]="{actress:actress}"></ng-container>
     </div>
-    <!-- //row -->
 </div>
-<!-- //container //timeline -->
+
 
 
 <!-- LEFT NODE TEMPLATE -->
-<ng-template #leftNode>
+<ng-template #leftNode let-actress='actress'>
     <div class="col-12 col-sm-6  d-flex justify-content-center left">
-        <div class="card border-primary">
-            <div class="card-header bg-primary text-white">{{ actress.presentYear }}</div>
+        <div class="card" [ngClass]="actress.color1">
+            <div class="card-header text-white" [ngClass]="actress.color2">{{ actress.presentYear }}</div>
             <div class="card-body">
                 <h5 class="card-title">{{ actress.name }}</h5>
                 <p class="card-text"> {{ actress.description }}
                     <a class="text-danger" target="_blank" [href]="actress.readmoreUrl">read more</a>
                 </p>
-                <img class="card-img-top" [src]="actress.photoUrl" alt="Card image cap" data-toggle="modal" data-target="#node1">
+                <img class="card-img-top" [src]="actress.photoUrl" alt="Card image cap" data-toggle="modal" [attr.data-target]="'#' + actress.id">
 
                 <!-- POPUP DIALOG -->
-                <div class="modal fade" id="node1">
+                <div class="modal fade" [id]="actress.id">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <!-- MODAL HEADER -->
@@ -52,20 +47,20 @@
 
 
 <!-- RIGHT NODE TEMPLATE -->
-<ng-template #rightNode>
+<ng-template #rightNode let-actress='actress'>
     <div class="col-sm-6 left d-none d-sm-block"></div>
     <div class="col-12 col-sm-6 d-flex justify-content-center right">
-        <div class="card border-primary">
-            <div class="card-header bg-primary text-white">{{ actress[0].presentYear }}</div>
+        <div class="card" [ngClass]="actress.color1">
+            <div class="card-header text-white" [ngClass]="actress.color2">{{ actress.presentYear }}</div>
             <div class="card-body">
                 <h5 class="card-title">{{ actress.name }}</h5>
                 <p class="card-text"> {{ actress.description }}
                     <a class="text-danger" target="_blank" [href]="actress.readmoreUrl">read more</a>
                 </p>
-                <img class="card-img-top" [src]="actress.photoUrl" alt="Card image cap" data-toggle="modal" data-target="#node1">
+                <img class="card-img-top" [src]="actress.photoUrl" alt="Card image cap" data-toggle="modal" [attr.data-target]="'#' + actress.id">
 
                 <!-- POPUP DIALOG -->
-                <div class="modal fade" id="node1">
+                <div class="modal fade" [id]="actress.id">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <!-- MODAL HEADER -->
