@@ -1,1 +1,160 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: lightgrey; 
+  }
+  
+.actress-head {
+    margin: 50px 0 30px 0;
+}
+
+.card {
+    max-width: 25rem;
+}
+
+.timeline {
+    background: white; 
+    counter-reset: section;
+    margin: 20px auto;
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+
+/* RIGHT NODES VERTICLE LINE */
+.timeline .right {
+    border-left: solid 2px #00b0bd;
+}
+
+/* LEFT NODES VERTICLE LINE */
+.timeline .left {
+    border-right: solid 2px #00b0bd;
+}
+
+/* CIRCUL */
+.timeline .right:before {
+    counter-increment: section;
+    content: counter(section);
+    position: absolute;
+    left: -22px;
+    top: 20%;
+    /* form & size */
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    /* colors & text */
+    background: #00b0bd;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 40px;
+    text-align: center;
+}
+
+
+/* RIGHT NODE ARROW */
+  .right .card:after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 21.5%;
+    width: 0;
+    z-index: 1;
+    left: -10px;
+    border: medium solid #343A40;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #343A40 transparent transparent;
+}
+
+/* LEFT NODE ARROW */
+.left .card:after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 21.5%;
+    width: 0;
+    z-index: 1;
+    right: -10px;
+    border: medium solid #343A40;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #343A40;
+}
+
+.embed-video {
+    width: 750px;
+    height: auto;
+    margin-top: 30px;
+}
+
+/* FOR EXTRA SMALL DEVICES */
+@media (max-width: 575px) {
+    .timeline {
+        background: white; 
+        counter-reset: section;
+        margin: 20px auto;
+        padding-left: 70px;
+        padding-top: 50px;
+        padding-bottom: 70px;
+    }
+
+    /* CIRCUL */
+    .timeline .right:before,
+    .timeline .left:before {
+        counter-increment: section;
+        content: counter(section);
+        position: absolute;
+        left: -22px;
+        top: 15%;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        background: orange;
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 40px;
+        text-align: center;
+      }
+
+      /* VERTICLE LINE */
+      .timeline .right,
+      .timeline .left {
+        border-left: solid 4px orange;
+        border-right: none;
+        padding-bottom: 80px;
+        padding-left: 40px;
+        padding-right: 60px;
+      } 
+
+      /* NODES ARROW */
+      .right .card:after,
+      .left .card:after {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 18.5%;
+        width: 0;
+        z-index: 1;
+        left: -10px;
+        border: medium solid #343A40;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #343A40 transparent transparent;
+    } 
+}
+
+/* FOR SMALL DEVICES */
+@media (min-width: 576px) {
+    .right .card {
+        margin-left: 20px;
+    }
+
+    .left .card {
+        margin-right: 20px;
+    }
+}
+
+
+
+
+
+
+
+
