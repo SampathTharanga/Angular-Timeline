@@ -10,15 +10,8 @@
 - **Lightweight**: Minimal dependencies, focused on performance and simplicity.
 - **Easy Integration**: Quick setup and usage in Angular applications.
 
-## Installation
 
 ### Prerequisites
 Ensure you have the following installed:
 - Node.js (version 12.x or higher)
 - npm (Node Package Manager)
-
-### Steps to Install
-
-1. Install the package via npm:
-   ```bash
-   npm install angular-timeline --save
